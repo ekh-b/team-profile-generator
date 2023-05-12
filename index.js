@@ -13,3 +13,6 @@ const render = require("./src/page-template.js");
 
 // TODO: Write Code to gather information about the development team members, and render the HTML file.
 
+// Employeed = parent class
+
+//Creating managers calss want to add more stuff- like the office number 
