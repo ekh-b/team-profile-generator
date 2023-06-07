@@ -27,18 +27,18 @@ const render = require("./src/page-template.js");
 
 const teamMembers =[];
 
-// ARRAY OF QUESTIONS- when prompted user input is required     //Need to check naming conventions match the page-template file
+// ARRAY OF QUESTIONS- when prompted user input is required    
 
 
-const startQuestions=[                                  //similar set up to licenses from readme
+const menuQuestions=[                                  
     {
-        type: 'list',                                   //Need to call this section first or does a manager need to be added first
-        message: 'What type of team member would you like to add?',
-        name: 'MemberType',
+        type: 'list',                                
+        message: 'What would you like to do next?',
+        name: 'MainMenu',
         choices:[
-        'Manager',
-        'Engineer',
-        'Intern',
+        'Add Engineer',
+        'Add Intern',
+        'Finish building the team',
         ]
     },
 
@@ -55,7 +55,7 @@ const employeeQuestions = [                                 //Is this all one bi
     {
         type: 'input',
         message: 'Please enter employee ID',
-        name: 'ID',
+        name: 'id',
     },
     {
         type: 'input',
@@ -79,7 +79,7 @@ const managerQuestions = [
 
 //Engineer questions:
 
-const engineerQuestion = [
+const engineerQuestions = [
     ...employeeQuestions,
     {
         type: 'input',
@@ -107,17 +107,19 @@ const internQuestions= [
 const getManagerData =() =>{
 
     inquirer.prompt(managerQuestions).then((data)=>{
-        let manager = new Manager (data.Name, data.ID, data.Email, data.OfficeNumber); //why is ID yellow
-        teamMembers.push(manager);     //pushed answers to teamMembers array     
-
+        let manager = new Manager (data.Name, data.id, data.Email, data.OfficeNumber); 
+        teamMembers.push(manager);     //pushed answers to teamMembers array 
+        getMainMenu() ;   //to prompt back to starting qs- need to delacre/define this 
+                                //need to prompt menu questions- switching and breaking to ask qs in order
     });
 }
 
 const getEngineerData =() =>{
 
     inquirer.prompt(engineerQuestions).then((data)=>{
-        let engineer = new Engineer (data.Name, data.ID, data.Email, data.GitHub); //why is ID yellow
-        teamMembers.push(engineer);          
+        let engineer = new Engineer (data.Name, data.id, data.Email, data.GitHub); 
+        teamMembers.push(engineer); 
+        getMainMenu() ;           
 
     });
 }
@@ -125,35 +127,80 @@ const getEngineerData =() =>{
 const getInternData =() =>{
 
     inquirer.prompt(internQuestions).then((data)=>{
-        let intern = new Intern (data.Name, data.ID, data.Email, data.School); //why is ID yellow
-        teamMembers.push(intern);          
+        let intern = new Intern (data.Name, data.id, data.Email, data.School); 
+        teamMembers.push(intern); 
+        getMainMenu() ;           
 
     });
 }
 
+//Need to get it to ask wquestions in the right order/ offer to add differnt types of team members
+
+ //Will these quesions run like the README - maybe put them in one array and just repeate the qestions to see if it works
+                                               
+ // jut write file, don't need to write to as line 20&21 create folder and file
+
+ //backtick not in right place, can't use MenUReturn as it causes probelms- don't know why it's asking for it (= was missing)
+
+ //need to  make sure it matches the menu list
 
 
-//  FUNCTION TO WRITE html FILE                 //Will these quesions run like the README - maybe put them in one array and just repeate the qestions to see if it works
-                                                // jut write file, don't need to write to as line 20&21 create folder and file
+ //  FUNCTION TO WRITE html FILE  
 
-function writeToFile(fileName, data) { // do I need to change fileName data to what I want the document to be called?- not changine data otherwise have to change iin other js file 
+ //break = semi colon ;
+ //case= colon :
 
-fs.writeFile(fileName, data ,function (err){  // Have to have all 3 elements in order to use write file function ( function, err and sucess?)
+const getMainMenu =()=> {       
     
-    if (err) console.log ("error");
+    inquirer.prompt(menuQuestions).then((data) => {
+    switch (data.MainMenu){
+        case "Add Engineer":
+        getEngineerData();
+        break;
+        case "Add Intern":
+        getInternData();                    
+        break;
+        case "Finish Building the team":
+        generateHTML();
+        break;
 
-    console.log ("Team html has been created- to view it, visit the 'output' folder")
+    }
+
+
 });
 
 }
+getManagerData ();              //Where does manager data go?
+
+//FUNCTION TO CALL RENDER?
+
+const generateHTML = () => {          //had problems when using function
+let createHTML= render(teamMembers);     //empty arrat
+fs.writeFile(outputPath, createHTML, (err)=>
+err? console.log (err) : console.log ("Team profile file has been created- to view it, visit the 'output' folder"));
+
+}
+
+// function writeToFile(fileName, data)
+// fs.writeFile(fileName, data ,function (err){
+//     if (err) console.log ("error");
+//     console.log ("Team profile file has been created- to view it, visit the 'output' folder")
+// });
 
 
-//FUNCTION TO INITIALISE PROGRAMME              //Think I'll have to keep everything separate so that the tests can run
-function init(){
+              
+// function writeToFile(fileName, data) { // do I need to change fileName data to what I want the document to be called?- not changine data otherwise have to change iin other js file 
 
+//     fs.writeFile(fileName, data ,function (err){  // Have to have all 3 elements in order to use write file function ( function, err and sucess?)
+        
+//         if (err) console.log ("error");
     
-}                                             //Write after each employee type not after all quesrions have been answered?
+//         console.log ("README.md file has been created- to view it, visit the 'GeneratedFile' folder")
+//     });
+
+//Difference between const and functin?
+
+//FUNCTION TO INITIALISE PROGRAMME             
 
 //FUNCTION CALL TO INITIALISE PROGRAMME
 
-init();
