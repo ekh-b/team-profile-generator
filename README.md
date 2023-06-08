@@ -6,7 +6,7 @@
 
 An application that generates an HTML webpage of a team profile, using input from a command-line interface.
 
-[Here is a sample page]
+[Here is a sample page from this application](https://ekh-b.github.io/team-profile-generator/assets/Sample.html)
 
 
 ## Installation
@@ -38,6 +38,11 @@ Below is an example of what this application generates:
 https://www.w3schools.com/css/css3_gradients.asp
 
 https://www.w3schools.com/css/css3_shadows_box.asp
+
+https://www.w3schools.com/js/js_switch.asp
+
+https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/Arrow_functions
+
 
 
 ## License
