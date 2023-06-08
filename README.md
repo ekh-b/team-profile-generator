@@ -1,46 +1,44 @@
 # team-profile-generator
-An application that generates HTML files using input from a command-line interface.
+
 
 
 ## Description
 
-Provide a short description explaining the what, why, and how of your project. Use the following questions as a guide:
+An application that generates an HTML webpage of a team profile, using input from a command-line interface.
 
-- What was your motivation?
-- Why did you build this project? (Note: the answer is not "Because it was a homework assignment.")
-- What problem does it solve?
-- What did you learn?
+[Here is a sample page]
 
-## Table of Contents (Optional)
-
-If your README is long, add a table of contents to make it easy for users to find what they need.
-
-- [Installation](#installation)
-- [Usage](#usage)
-- [Credits](#credits)
-- [License](#license)
 
 ## Installation
 
-What are the steps required to install your project? Provide a step-by-step description of how to get the development environment running.
+Following installations are required in order to use this application:
+
+- Install node (https://nodejs.org/en/download) -If homebrew is already installed run command ***brew install node@16***)
+- Install filing system node module
+- Install inquirer: ***init-y*** followed by ***npm install --save inquirer@^8.0.0***
+- Install jest
+
+See my package.json file to ensure you have installed the correct dependencies.
+
 
 ## Usage
 
-Provide instructions and examples for use. Include screenshots as needed.
+- To run the tests use command 'npm run test'.
 
-To add a screenshot, create an `assets/images` folder in your repository and upload your screenshot to it. Then, using the relative filepath, add it to your README using the following syntax:
+- To generate a team profile use command 'node index.js' and follow the instructions in the console.
 
-    ```md
-    ![alt text](assets/images/screenshot.png)
-    ```
 
-## Credits
+Below is an example of what this application generates:
 
-List your collaborators, if any, with links to their GitHub profiles.
 
-If you used any third-party assets that require attribution, list the creators with links to their primary web presence in this section.
+![image](./assets/images/TeamProfile.png)
 
-If you followed tutorials, include links to those here as well.
+## Credits/ Resources used
+
+https://www.w3schools.com/css/css3_gradients.asp
+
+https://www.w3schools.com/css/css3_shadows_box.asp
+
 
 ## License
 

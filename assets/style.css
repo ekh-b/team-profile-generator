@@ -13,7 +13,9 @@ style.css */
 
 .team-heading{
 
-background-image: linear-gradient(to right, #c2a0dd , #a05cd7);
+background-image: linear-gradient( #a05cd7, #c2a0dd);
+
+
 color:#fbfbfb;
 }
 

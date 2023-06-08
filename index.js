@@ -1,12 +1,5 @@
 // TODO: Write Code to gather information about the development team members, and render the HTML file.
 
-// Employeed = parent class
-
-//Creating managers calss want to add more stuff- like the office number
-
-// Need to have questions array
-
-//Call on the other js pages in the lib folder
 
 //DEPENDENCIES
 
@@ -72,8 +65,8 @@ const managerQuestions = [
     ...employeeQuestions,
     {
         type: 'input',
-        message: 'Please enter office number',      //Number for a rom or a phine number??
-        name: 'OfficeNumber',                       //Don't think i can have a space- not sure if it needs to be like const upper and lowercase??
+        message: 'Please enter office number',      
+        name: 'OfficeNumber',                       
     },
 ];
 
@@ -138,13 +131,10 @@ const getInternData =() =>{
 
 //Need to get it to ask wquestions in the right order/ offer to add differnt types of team members
 
- //Will these quesions run like the README - maybe put them in one array and just repeate the qestions to see if it works
                                                
  // jut write file, don't need to write to as line 20&21 create folder and file
 
- //backtick not in right place, can't use MenUReturn as it causes probelms- don't know why it's asking for it (= was missing)
 
- //need to  make sure it matches the menu list
 
 
  //  FUNCTION TO WRITE html FILE  
@@ -152,7 +142,7 @@ const getInternData =() =>{
  //break = semi colon ;
  //case= colon :
 
- //need to review wk11. d2 ex6 maths acitivit
+ //need to review wk11. d2 ex6 maths acitivity
 
 const getMainMenu =()=> {       
     
@@ -190,40 +180,6 @@ getManagerData ();              //Where does manager data go?- when uncommented 
                                 //why doesn't this work in line 107?
 
 
-//FUNCTION TO CALL RENDER?
-
-// const generateHTML = () => {          //had problems when using function
-// let createHTML= render(teamMembers);     //empty arrat
-// fs.writeFile(outputPath, createHTML, (err) =>
-//     err? console.log ("error") : console.log ("Team profile file has been created- to view it, visit the 'output' folder"));
-
-// }
-
-// const generateHTML = () => {
-//     console.log(teamMembers);
-//     fs.writeFile(outputPath, render(teamMembers), (error) =>
-//         error ? console.log(error) : console.log("Team profile file has been created- to view it, visit the 'output' folder"));
-
-// }
-// function writeToFile(fileName, data)
-// fs.writeFile(fileName, data ,function (err){
-//     if (err) console.log ("error");
-//     console.log ("Team profile file has been created- to view it, visit the 'output' folder")
-// });
-
-
-              
-// function writeToFile(fileName, data) { // do I need to change fileName data to what I want the document to be called?- not changine data otherwise have to change iin other js file 
-
-//     fs.writeFile(fileName, data ,function (err){  // Have to have all 3 elements in order to use write file function ( function, err and sucess?)
-        
-//         if (err) console.log ("error");
-    
-//         console.log ("README.md file has been created- to view it, visit the 'GeneratedFile' folder")
-//     });
 
 //Difference between const and functin?
 
-//FUNCTION TO INITIALISE PROGRAMME             
-
-//FUNCTION CALL TO INITIALISE PROGRAMME
