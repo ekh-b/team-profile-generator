@@ -168,12 +168,22 @@ const getMainMenu =()=> {
         generateHTML();
         break;
 
+        default:                                        //
+            
+            const generateHTML = render(teamMembers);
+            fs.writeFile(outputPath, generateHTML, (err) => {
+              if (err) throw err;
+              console.log("Team profile file has been created- to view it, visit the 'output' folder");
+            });
+            break;
+
     }
 
 
 });
 
 }
+
 //Can I add details before this via consle lof
 console.log ("Following set of questions relate to Manager")
 getManagerData ();              //Where does manager data go?- when uncommented it prompts questons
@@ -182,13 +192,19 @@ getManagerData ();              //Where does manager data go?- when uncommented 
 
 //FUNCTION TO CALL RENDER?
 
-const generateHTML = () => {          //had problems when using function
-let createHTML= render(teamMembers);     //empty arrat
-fs.writeFile(outputPath, createHTML, (err) =>
-    err? console.log ("error") : console.log ("Team profile file has been created- to view it, visit the 'output' folder"));
+// const generateHTML = () => {          //had problems when using function
+// let createHTML= render(teamMembers);     //empty arrat
+// fs.writeFile(outputPath, createHTML, (err) =>
+//     err? console.log ("error") : console.log ("Team profile file has been created- to view it, visit the 'output' folder"));
 
-}
+// }
 
+// const generateHTML = () => {
+//     console.log(teamMembers);
+//     fs.writeFile(outputPath, render(teamMembers), (error) =>
+//         error ? console.log(error) : console.log("Team profile file has been created- to view it, visit the 'output' folder"));
+
+// }
 // function writeToFile(fileName, data)
 // fs.writeFile(fileName, data ,function (err){
 //     if (err) console.log ("error");
@@ -211,4 +227,3 @@ fs.writeFile(outputPath, createHTML, (err) =>
 //FUNCTION TO INITIALISE PROGRAMME             
 
 //FUNCTION CALL TO INITIALISE PROGRAMME
-
