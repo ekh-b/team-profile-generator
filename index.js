@@ -104,6 +104,8 @@ const internQuestions= [
 //Need to capture data- data.name, similar to readme methlogy
 //Do I need to get employee question data- or due to spread will they be included?- startQuestins doesn't highight
 
+
+
 const getManagerData =() =>{
 
     inquirer.prompt(managerQuestions).then((data)=>{
@@ -150,6 +152,8 @@ const getInternData =() =>{
  //break = semi colon ;
  //case= colon :
 
+ //need to review wk11. d2 ex6 maths acitivit
+
 const getMainMenu =()=> {       
     
     inquirer.prompt(menuQuestions).then((data) => {
@@ -170,14 +174,18 @@ const getMainMenu =()=> {
 });
 
 }
-getManagerData ();              //Where does manager data go?
+//Can I add details before this via consle lof
+console.log ("Following set of questions relate to Manager")
+getManagerData ();              //Where does manager data go?- when uncommented it prompts questons
+                                //why doesn't this work in line 107?
+
 
 //FUNCTION TO CALL RENDER?
 
 const generateHTML = () => {          //had problems when using function
 let createHTML= render(teamMembers);     //empty arrat
-fs.writeFile(outputPath, createHTML, (err)=>
-err? console.log (err) : console.log ("Team profile file has been created- to view it, visit the 'output' folder"));
+fs.writeFile(outputPath, createHTML, (err) =>
+    err? console.log ("error") : console.log ("Team profile file has been created- to view it, visit the 'output' folder"));
 
 }
 
